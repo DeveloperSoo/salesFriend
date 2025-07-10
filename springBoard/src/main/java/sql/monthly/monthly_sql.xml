@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="monthly">
+    
+    
+    <resultMap type="com.spring.monthly.dto.MonthlyDto" id="monthlyDto">
+        <!-- ROWNUM은 Oracle 전용, MariaDB에선 LIMIT 사용하니 제거 -->
+        <result property="productName" column="PRODUCT_NAME"/>
+        <result property="totalPrice" column="TOTAL_PRICE"/>
+    </resultMap>
+    
+    <resultMap type="com.spring.monthly.vo.MonthlyVo" id="monthlyVo">
+        <result property="monSeq" column="MON_SEQ"/> 
+        <result property="id" column="ID"/> 
+        <result property="year" column="YEAR"/> 
+        <result property="month" column="MONTH"/> 
+        <result property="totalPrice" column="TOTAL_PRICE"/> 
+        <result property="des" column="DES"/> 
+    </resultMap>
+    
+    <!-- 상품별 매출 통계 -->
+    <select id="selectTotalByProduct" resultMap="monthlyDto">
+        <![CDATA[
+            SELECT PRODUCT_NAME
+                 , SUM(PRICE * PRODUCT_COUNT) AS totalPrice
+            FROM SALES
+            GROUP BY PRODUCT_NAME
+            ORDER BY totalPrice DESC
+            LIMIT 5
+        ]]>
+    </select>
+    
+    <select id="selectTotalById" resultMap="monthlyVo">
+        SELECT ID AS id
+             , SUM(TOTAL_PRICE) AS totalPrice 
+        FROM MONTHLY 
+        GROUP BY ID 
+        ORDER BY totalPrice ASC
+    </select>
+    
+    <!-- 전체 데이터 가져오기 -->
+    <select id="selectTotalData" resultMap="monthlyVo">
+        SELECT YEAR
+             , MONTH
+             , SUM(TOTAL_PRICE) AS totalPrice
+        FROM MONTHLY
+        GROUP BY YEAR, MONTH      
+        ORDER BY MONTH ASC
+    </select>
+    
+    <!-- 전체 데이터 싹 가져오기 -->
+    <select id="selectAll" resultMap="monthlyVo">
+        SELECT *
+        FROM MONTHLY
+        ORDER BY MONTH ASC
+    </select>
+    
+    <insert id="insertMonthlyTotal" parameterType="com.spring.monthly.vo.MonthlyVo">
+        INSERT INTO MONTHLY(
+            ID,
+            YEAR,
+            MONTH,
+            TOTAL_PRICE
+        ) VALUES (
+            #{id},
+            #{year},
+            #{month},
+            #{totalPrice}
+        )
+    </insert>
+    
+    <update id="updateMonthlyTotal" parameterType="com.spring.monthly.vo.MonthlyVo">
+        UPDATE MONTHLY
+        SET TOTAL_PRICE = #{totalPrice}
+        WHERE ID = #{id}
+          AND MONTH = #{month}
+          AND YEAR = #{year}
+    </update>
+  	
+	    
+    
+
+</mapper>

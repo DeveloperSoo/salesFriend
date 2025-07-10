@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sales">
+    
+    <resultMap type="com.spring.sales.vo.SalesVo" id="salesVo">
+        <result property="salesSeq" column="SALES_SEQ"/> 
+        <result property="id" column="ID"/>
+        <result property="productName" column="PRODUCT_NAME"/>
+        <result property="date" column="SALES_DATE"/>
+        <result property="des" column="DES"/>
+        <result property="price" column="PRICE"/>
+        <result property="productCount" column="PRODUCT_COUNT"/>
+    </resultMap>
+    
+    <resultMap type="com.spring.monthly.vo.MonthlyVo" id="monthlyVo">
+        <result property="monSeq" column="MON_SEQ"/> 
+        <result property="id" column="ID"/> 
+        <result property="year" column="YEAR"/> 
+        <result property="month" column="MONTH"/> 
+        <result property="totalPrice" column="TOTAL_PRICE"/> 
+        <result property="des" column="DES"/> 
+    </resultMap>
+    
+    <!-- 매출등록 전체 내용 가져오기 -->
+    <select id="selectSalesList" resultMap="salesVo">
+        SELECT *
+        FROM SALES
+    </select>
+    
+    <!-- 기간별 담당자별 합계 값 가져오기 -->
+    <select id="selectSalesTotal" resultMap="monthlyVo">
+        SELECT ID,
+               SUBSTRING(SALES_DATE, 1, 4) AS YEAR,
+               SUBSTRING(SALES_DATE, 5, 2) AS MONTH,
+               SUM(PRICE * PRODUCT_COUNT) AS TOTAL_PRICE
+        FROM SALES
+        GROUP BY ID, SUBSTRING(SALES_DATE, 1, 4), SUBSTRING(SALES_DATE, 5, 2)
+    </select>
+    
+    <insert id="excelUpload" parameterType="map">
+        INSERT INTO SALES (
+            ID,
+            PRODUCT_NAME,
+            SALES_DATE,
+            DES,
+            PRICE,
+            PRODUCT_COUNT
+        ) VALUES (
+            #{id},
+            #{PRODUCT_NAME},
+            #{SALES_DATE},
+            #{DES},
+            #{PRICE},
+            #{PRODUCT_COUNT}
+        )
+    </insert>
+    
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="menu">
+    
+    <resultMap type="com.spring.menu.vo.MenuVo" id="MenuVo">
+        <result property="menuSeq" column="MENU_SEQ"/> 
+        <result property="menuCode" column="MENU_CODE"/> 
+        <result property="menuName" column="MENU_NAME"/> 
+        <result property="useYn" column="USE_YN"/> 
+    </resultMap>
+    
+    <resultMap type="com.spring.menu.dto.MyMenuDto" id="MyMenuDto">
+        <result property="myMenuSeq" column="MY_MENU_SEQ"/> 
+        <result property="menuSeq" column="MENU_SEQ"/> 
+        <result property="id" column="ID"/> 
+        <result property="menuName" column="MENU_NAME"/> 
+    </resultMap>
+    
+    <delete id="deleteMyMenu">
+        DELETE FROM MY_MENU
+        WHERE ID = #{id}
+    </delete>
+   
+    <insert id="insertMyMenu" parameterType="com.spring.menu.dto.MyMenuDto">
+        INSERT INTO MY_MENU (MENU_SEQ, ID, MENU_NAME)
+        VALUES (#{menuSeq}, #{id}, #{menuName})
+    </insert>
+        
+    <select id="selectMyMenuList" resultMap="MyMenuDto">
+        SELECT *
+        FROM MY_MENU
+        WHERE ID = #{id}
+    </select>
+        
+    <select id="selectMyMenu" resultType="Integer">
+        SELECT COUNT(*)
+        FROM MY_MENU
+        WHERE ID = #{id}
+    </select>
+
+    <select id="selectAll" resultMap="MenuVo">
+        SELECT *
+        FROM MENU
+    </select>
+
+    <select id="selectByCheck" parameterType="list" resultMap="MenuVo">
+        SELECT *
+        FROM MENU
+        <where>
+            <if test="list != null and list.size() > 0">
+                AND MENU_NAME IN
+                <foreach item="menu" collection="list" open="(" separator="," close=")">
+                    #{menu}
+                </foreach>           
+            </if>
+        </where>
+    </select>
+
+</mapper>

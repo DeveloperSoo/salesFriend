@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="recruit">
+    
+   <resultMap type="com.spring.recruit.vo.RecruitVo" id="recruitVO">
+        <result property="recruitSeq" column="RECRUIT_SEQ"/> 
+        <result property="name" column="NAME"/>
+        <result property="id" column="ID"/>
+        <result property="pwd" column="PWD"/>
+        <result property="phone" column="PHONE"/>
+        <result property="addr" column="ADDR"/>
+    </resultMap>
+    
+    <!-- 로그인 -->
+    <select id="selectRecruit" parameterType="com.spring.recruit.vo.RecruitVo" resultMap="recruitVO">
+        SELECT *
+        FROM RECRUIT
+        WHERE ID = #{id}
+          AND PWD = #{pwd}
+    </select>
+    
+    <!-- 이메일 중복검사 -->
+    <select id="selectOneById" resultType="Integer">
+        SELECT COUNT(*)
+        FROM RECRUIT
+        WHERE ID = #{id}
+    </select>
+    
+    <!-- 회원가입 -->
+    <insert id="insertRecruit" parameterType="com.spring.recruit.vo.RecruitVo">
+        INSERT INTO RECRUIT(
+            NAME,
+            ID,
+            PWD
+        ) VALUES (
+            #{name},
+            #{id},
+            #{pwd}
+        )
+    </insert>
+    
+    
+</mapper>

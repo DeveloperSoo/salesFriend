@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="schedule">
+    
+    <resultMap type="com.spring.schedule.vo.ScheduleVo" id="scheduleVo">
+        <result property="schSeq" column="SCH_SEQ"/> 
+        <result property="id" column="ID"/> 
+        <result property="title" column="TITLE"/> 
+        <result property="detail" column="DETAIL"/> 
+        <result property="startDate" column="START_DATE"/> 
+        <result property="endDate" column="END_DATE"/> 
+    </resultMap>
+    
+    <!-- 일정등록 전체 내용 가져오기 -->
+    <select id="selectSchList" resultMap="scheduleVo">
+        SELECT *
+        FROM SCHEDULE
+    </select>
+
+    <delete id="deleteSchedule" parameterType="com.spring.schedule.vo.ScheduleVo">
+        DELETE FROM SCHEDULE
+        WHERE ID = #{id}
+          AND SCH_SEQ = #{schSeq}
+    </delete>
+
+    <update id="updateSchedule" parameterType="com.spring.schedule.vo.ScheduleVo">
+        UPDATE SCHEDULE
+        SET 
+            TITLE = #{title},
+            DETAIL = #{detail},
+            START_DATE = #{startDate},
+            END_DATE = #{endDate}
+        WHERE ID = #{id}
+          AND SCH_SEQ = #{schSeq}
+    </update>
+    
+    <insert id="insertSchedule" parameterType="map">
+        INSERT INTO SCHEDULE(
+            ID,
+            TITLE,
+            DETAIL,
+            START_DATE,
+            END_DATE
+        ) VALUES (
+            #{id},
+            #{title},
+            #{detail},
+            #{startDate},
+            #{endDate}
+        )
+    </insert>
+	        
+
+</mapper>

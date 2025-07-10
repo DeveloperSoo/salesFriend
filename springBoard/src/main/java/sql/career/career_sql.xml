@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="career">
+    
+    <resultMap type="com.spring.career.vo.careerVo" id="careerVo">
+    	<result property="compName" 		column="COMP_NAME"/>
+    	<result property="location" 		column="LOCATION"/>
+    	<result property="startPeriod" 		column="START_PERIOD"/>
+    	<result property="endPeriod" 		column="END_PERIOD"/>
+    	<result property="task" 			column="TASK"/>
+    	<result property="salary" 			column="SALARY"/>
+    </resultMap>
+    
+    <delete id="deleteCareer" parameterType="map">
+    	DELETE
+    	FROM CAREER
+    	WHERE SEQ = #{recruit.seq}
+    </delete>
+    
+    <insert id="insertCareer" parameterType="map">
+    	INSERET INTO
+    	CAREER
+    	(CAR_SEQ
+    	,SEQ
+    	,COMP_NAME
+    	,LOCATION
+    	,START_PERIOD
+    	,END_PERIOD
+    	,TASK
+    	,SALARY
+    	)
+    	VALUES(
+    	(SELECT TO_NUMBER(NVL(MAX(TO_NUMBER(CAR_SEQ)), 0) +1)
+    	FROM CAREER
+    	)
+    	,#{recruit.seq}
+    	,#{careerCheck.compName}
+    	,#{careerCheck.location}
+    	,#{careerCheck.startPeriod}
+    	,#{careerCheck.endPeriod}
+    	,#{careerCheck.task}
+    	,#{careerCheck.salary}
+    	)
+    </insert>
+    
+    
+    
+</mapper>
