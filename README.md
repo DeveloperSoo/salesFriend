@@ -35,7 +35,7 @@ MVC패턴(Model-View-Controller)
 
 
 
-### 매출등
+### 매출등록
 
 |기능명|상세|
 |--|--|
@@ -82,38 +82,41 @@ MVC패턴(Model-View-Controller)
 <summary>
 1. 메인화면
 </summary>
-<img src="https://github.com/user-attachments/assets/4bd7fb25-805f-404e-9522-f7532a6ba7db" alt="메인 화면">
+<img width="1882" height="896" alt="Image" src="https://github.com/user-attachments/assets/72b02ad7-68eb-47ce-8984-54707e952aa4" alt="메인페이지"/>
 </details>
 
 <details>
 <summary>
-2. 소개 페이지
+2. 매출 등록
 </summary>
-<img src="https://github.com/user-attachments/assets/988e28f4-fac5-4eb0-96d2-846e1127171b" alt="소개 페이지">
+<img width="1913" height="861" alt="Image" src="https://github.com/user-attachments/assets/91d9c79a-82c0-4b9c-8672-7c44cd95488d" alt="매출등록"/>
 </details>
 
 <details>
 <summary>
-3. 로그인(소셜 로그인 Oauth 구현)
+3. 일정 관리
 </summary>
-<img src="https://github.com/user-attachments/assets/6446804e-e49c-4bdc-b7d4-1876bb52585f" alt="메인 로그인">
-<img src="https://github.com/user-attachments/assets/75625f63-cdef-49e0-bb2a-773a467fc24b" alt="카카오 로그인">
-<img src="https://github.com/user-attachments/assets/d1b75f30-27f3-43d6-b47a-f7b4925df568" alt="구글 로그인">
-<img src="https://github.com/user-attachments/assets/6806a0b2-06d6-4fc7-af54-6f27021b5ef5" alt="네이버 로그인">
+<img width="1905" height="896" alt="Image" src="https://github.com/user-attachments/assets/213d59fd-d53c-4ddd-a466-fa8593c55c24" alt="일정관리" />
 </details>
 
 <details>
 <summary>
-4. 아이디, 비밀번호 찾기
+4. 문서 생성
 </summary>
-<img src="https://github.com/user-attachments/assets/70c31fd2-2151-4da7-ad3b-f2f1945158df" alt="아이디 찾기">
-<img src="https://github.com/user-attachments/assets/9372a7a5-7ab3-4d39-a4ac-8749c7252aeb" alt="비밀번호 찾기">
+<img width="1864" height="897" alt="Image" src="https://github.com/user-attachments/assets/59588cda-d610-46a6-82e9-fb93070b8206" alt="문서생" />
 </details>
 
 <details>
 <summary>
-5. 회원 가입
+5. 매출 통계
 </summary>
-<img src="https://github.com/user-attachments/assets/07a75703-7bf6-429b-8bbe-d64d83f88bed" alt="회원가입 페이지">
+<img width="1900" height="903" alt="Image" src="https://github.com/user-attachments/assets/ad910377-d478-426b-aa98-d37e6d727a2d" alt="매출 통계"/>
 </details>
 
+
+<details>
+<summary>
+6, 마이메뉴
+</summary>
+<img width="1900" height="903" alt="Image" src="https://github.com/user-attachments/assets/6645c72e-6ff8-4ee9-9ec3-c414453270b0" alt="마이메뉴" />
+</details>
