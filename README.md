@@ -82,7 +82,7 @@ MVC패턴(Model-View-Controller)
 <summary>
 1. 메인화면
 </summary>
-<img width="1882" height="896" alt="Image" src="https://github.com/user-attachments/assets/72b02ad7-68eb-47ce-8984-54707e952aa4" alt="메인페이지"/>
+<img width="1887" height="894" alt="Image" src="https://github.com/user-attachments/assets/a6ab7036-1296-4150-a096-1e42a7204e83" />
 </details>
 
 <details>
@@ -110,7 +110,7 @@ MVC패턴(Model-View-Controller)
 <summary>
 5. 매출 통계
 </summary>
-<img width="1900" height="903" alt="Image" src="https://github.com/user-attachments/assets/ad910377-d478-426b-aa98-d37e6d727a2d" alt="매출 통계"/>
+<img width="1890" height="896" alt="Image" src="https://github.com/user-attachments/assets/40ee5f61-bee6-4dac-a54a-beff8929c83f" />
 </details>
 
 
