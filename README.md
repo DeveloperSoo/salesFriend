@@ -121,7 +121,7 @@ MVC패턴(Model-View-Controller)
 
 <details>
 <summary>
-6, 마이메뉴
+6. 마이메뉴
 </summary>
 <img width="1900" height="903" alt="Image" src="https://github.com/user-attachments/assets/6645c72e-6ff8-4ee9-9ec3-c414453270b0" alt="마이메뉴" />
 </details>
