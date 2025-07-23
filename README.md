@@ -38,7 +38,7 @@ MVC패턴(Model-View-Controller)
 
 # 주요기능
 
-### 미러링
+### 화면 미러링
 
 |기능명|상세|
 |--|--|
@@ -87,38 +87,45 @@ MVC패턴(Model-View-Controller)
 
 ## 화면 구현
 
+<details>
+<summary>
+1. 화면 미러
+</summary>
+<img width="1612" height="879" alt="Image" src="https://github.com/user-attachments/assets/386e008c-deaa-44ef-b5fb-224dd215dfd2" />
+<img width="1602" height="873" alt="Image" src="https://github.com/user-attachments/assets/b965e85e-33b8-412d-a326-ab6d0e621f5c" />
+</details>
 
 <details>
 <summary>
-1. 메인화면
+2. 메인화면
 </summary>
 <img width="1887" height="894" alt="Image" src="https://github.com/user-attachments/assets/a6ab7036-1296-4150-a096-1e42a7204e83" />
 </details>
 
 <details>
 <summary>
-2. 매출 등록
+3. 매출 등록
 </summary>
 <img width="1913" height="861" alt="Image" src="https://github.com/user-attachments/assets/91d9c79a-82c0-4b9c-8672-7c44cd95488d" alt="매출등록"/>
 </details>
 
 <details>
 <summary>
-3. 일정 관리
+4. 일정 관리
 </summary>
 <img width="1905" height="896" alt="Image" src="https://github.com/user-attachments/assets/213d59fd-d53c-4ddd-a466-fa8593c55c24" alt="일정관리" />
 </details>
 
 <details>
 <summary>
-4. 문서 생성
+5. 문서 생성
 </summary>
 <img width="1864" height="897" alt="Image" src="https://github.com/user-attachments/assets/59588cda-d610-46a6-82e9-fb93070b8206" alt="문서생" />
 </details>
 
 <details>
 <summary>
-5. 매출 통계
+6. 매출 통계
 </summary>
 <img width="1890" height="896" alt="Image" src="https://github.com/user-attachments/assets/40ee5f61-bee6-4dac-a54a-beff8929c83f" />
 </details>
@@ -126,7 +133,7 @@ MVC패턴(Model-View-Controller)
 
 <details>
 <summary>
-6. 마이메뉴
+7. 마이메뉴
 </summary>
 <img width="1900" height="903" alt="Image" src="https://github.com/user-attachments/assets/6645c72e-6ff8-4ee9-9ec3-c414453270b0" alt="마이메뉴" />
 </details>
