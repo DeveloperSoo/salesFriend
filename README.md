@@ -89,7 +89,7 @@ MVC패턴(Model-View-Controller)
 
 <details>
 <summary>
-1. 화면 미러
+1. 화면 미러링
 </summary>
 <img width="1612" height="879" alt="Image" src="https://github.com/user-attachments/assets/386e008c-deaa-44ef-b5fb-224dd215dfd2" />
 <img width="1602" height="873" alt="Image" src="https://github.com/user-attachments/assets/b965e85e-33b8-412d-a326-ab6d0e621f5c" />
